@@ -27,7 +27,16 @@ Content TEXT,
 Likes INTEGER,
 FOREIGN KEY(AccountID) REFERENCES Accounts(AccountID),
 FOREIGN KEY(PostID) REFERENCES Posts(PostID)
-)")
+)");
+
+
+$db->exec("CREATE TABLE IF NOT EXISTS Followers(
+AccountID INTEGER,
+FollowerAccountID INTEGER,
+FOREIGN KEY(AccountID) REFERENCES Accounts(AccountID),
+FOREIGN KEY(FollowerAccountID) REFERENCES Accounts(AccountID)
+)");
+    
 //close the database connection
 $db->close();
 ?>
