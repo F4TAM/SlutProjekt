@@ -15,7 +15,7 @@ $db->exec("CREATE TABLE IF NOT EXISTS Posts(
 PostID INTEGER PRIMARY KEY AUTOINCREMENT,
 AccountID INTEGER,
 Content TEXT,
-Likes INTEGER
+Likes INTEGER,
 FOREIGN KEY (accountID) REFERENCES Accounts(AccountID)
 )");
 
@@ -39,4 +39,6 @@ FOREIGN KEY(FollowerAccountID) REFERENCES Accounts(AccountID)
     
 //close the database connection
 $db->close();
+
+header("location: LogInReg.php");
 ?>
