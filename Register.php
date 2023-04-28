@@ -8,16 +8,24 @@ if(isset($_SESSION["message"]))
 ?>
 
 <html>
-<head><title>REGISTER</title></head>
+<head><title>REGISTER</title>
+<link rel ="stylesheet" href="style.css">
+</head>
 <body>
 <BR><BR>
+
+<div class="inputs">
 Here you register a new account!<BR><BR>
 <form action="CreateAccount.php" method = "POST">
+
 Email: <input type="text" name = "Email"><BR>
 Username: <input type="text" name = "Name"><BR>
 Password: <input type="password" name = "Password"><BR>
+
 <input type="submit">
 </form>
+
+</div>
 
 
 </body>
