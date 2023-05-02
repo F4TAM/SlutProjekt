@@ -21,7 +21,7 @@ if(strlen($_POST["Name"])>0 && strlen($_POST["Email"])>0 && strlen($_POST["Passw
     $db->exec("INSERT INTO Accounts(Name, Email, Password) 
     VALUES('".$tempName."','".$tempEmail."','".hash('sha3-512',$TempPassword)."');");
 
-    echo "Account have been created!";
+    echo "Awaiting Administrations confirmation!";
     $db->close();
 }
 else
