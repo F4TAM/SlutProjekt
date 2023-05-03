@@ -18,9 +18,9 @@ if(isset($_SESSION["message"]))
 Here you register a new account!<BR><BR>
 <form action="CreateAccount.php" method = "POST">
 
-Email: <input type="text" name = "Email"><BR>
-Username: <input type="text" name = "Name"><BR>
-Password: <input type="password" name = "Password"><BR>
+Email: <input type="text" name = "Email" required><BR>
+Username: <input type="text" name = "Name" required><BR>
+Password: <input type="password" name = "Password" required><BR>
 
 <input type="submit">
 </form>

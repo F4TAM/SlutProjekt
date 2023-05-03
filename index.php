@@ -36,6 +36,12 @@ FollowerAccountID INTEGER,
 FOREIGN KEY(AccountID) REFERENCES Accounts(AccountID),
 FOREIGN KEY(FollowerAccountID) REFERENCES Accounts(AccountID)
 )");
+
+$db->exec("CREATE TABLE IF NOT EXISTS PreAccounts(
+Name TEXT,
+Email TEXT,
+Password TEXT
+)");
     
 //close the database connection
 $db->close();
