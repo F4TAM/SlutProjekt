@@ -38,6 +38,7 @@ FOREIGN KEY(FollowerAccountID) REFERENCES Accounts(AccountID)
 )");
 
 $db->exec("CREATE TABLE IF NOT EXISTS PreAccounts(
+AccoundID INTEGER PRIMARY KEY AUTOINCREMENT,
 Name TEXT,
 Email TEXT,
 Password TEXT

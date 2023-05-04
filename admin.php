@@ -27,18 +27,30 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
 {
   // User is not logged in, show the login form
 ?>
+<html>
+<head>
+<link rel="stylesheet" href="admin.css"> 
+</head>
+<body>
 <form method="post" action="admin.php">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required><br>
+  <div class="inputBox">
+    <span>Username: </span>
+    <input type="text" id="username" name="username" required><br>
+  </div>
+  <div class="inputBox">
+    <span>Password:</span>
+    <input type="password" id="password" name="password" required><br>
+  </div>
+
   <input type="submit" value="Login">
-</form>
+</form>  
+</body>
+</html>
 <?php
 }
  else 
  {
-  // User is logged in, show the admin page and logout button
+  // Admin is logged in, show the admin page and logout button
 ?>
   <h1>Welcome, admin!</h1>
   <p>Here is some content that only logged-in users can see.</p>
@@ -128,12 +140,13 @@ function displayPreAccountsTable($db)
     // Execute the query
     $db->query($query);
 
+    header("Refresh:0");
     // Display a message to confirm the deletion
     echo '<p>Selected row has been deleted.</p>';
   }
 
   // Check if the form was submitted
-  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accounts']))
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accounts']) && !isset($_POST['delete']))
   {
     if($result->numColumns() > 0)
     {
@@ -143,16 +156,26 @@ function displayPreAccountsTable($db)
         if(isset($row['Name']) && isset($row['Password']))
         {
           $email = $row['Email']; // Set the email variable
-          
+
           // Loop through the selected accounts and insert them into the Accounts table
           foreach($_POST['accounts'] as $email)
           {
             $query = "INSERT INTO Accounts (Name, Email, Password) VALUES 
             ('" . $row['Name'] . "', '" . $email . "', '" . $row['Password'] . "')";
             $db->exec($query); // Execute the insert statement
+
+            // Get the email of the selected row to delete 
+            $email = $_POST['email'];
+
+            // Build the query to delete the selected row from the PreAccounts table
+            $query = "DELETE FROM PreAccounts WHERE Email = '" . $email . "'";
+
+            // Execute the query
+            $db->query($query);
           }
         }
       }
+      header("Refresh:0");
       echo "Accounts inserted into table Accounts!";
     }
   }
