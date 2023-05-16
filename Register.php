@@ -1,6 +1,5 @@
 <html>
 <head><title>REGISTER</title>
-<link rel ="stylesheet" href="style.css">
 </head>
 <body>
 <BR><BR>
