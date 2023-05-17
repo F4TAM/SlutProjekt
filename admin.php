@@ -27,6 +27,36 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
 {
   // User is not logged in, show the login form
 ?>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animated Register Form</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Admin</h1>
+      <form method="post" action="admin.php">
+        <div class="txt_field">
+          <input type="text" name="username" maxlenght="64" required>
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" maxlenght="32" required>
+          <span></span>
+          <label >Password</label>
+        </div>
+        <div class="pass"></div>
+        <input type="submit" value="Register">
+        <div class="signup_link">
+          Not a Admin? <a href="LogIn.php">Log in</a>
+        </div>
+      </form>
+    </div>
+</html>
+
+<!--
 <html>
 <head>
 <link rel="stylesheet" href="admin.css"> 
@@ -45,7 +75,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
   <input type="submit" value="Login">
 </form>  
 </body>
-</html>
+</html> -->
 <?php
 }
  else 
@@ -64,6 +94,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
   displayPreAccountsTable($db);
   ?>
 
+  <!-- Button for Admin to logut, action logout -->
   <form method="get" action="admin.php">
   <input type="hidden" name="action" value="logout">
   <input type="submit" value="Logout">

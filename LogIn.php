@@ -18,11 +18,13 @@
           <span></span>
           <label >Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login">
         <div class="signup_link">
-          Not a member? <a href="#">Signup</a>
+          Not a member? <a href="Register2.php">Signup</a>
+          <p></p>
+          Admin log in: <a href="admin.php">Log in</a>
         </div>
+
       </form>
     </div>
 
@@ -67,6 +69,7 @@
 
   </body>
   </head>
+</html>
 
 
 
