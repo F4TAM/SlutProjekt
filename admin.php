@@ -30,7 +30,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Animated Register Form</title>
+    <title>Admin Form</title>
     <link rel="stylesheet" href="login.css">
   </head>
   <body>
@@ -50,32 +50,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
         <div class="pass"></div>
         <input type="submit" value="Register">
         <div class="signup_link">
-          Not a Admin? <a href="LogIn.php">Log in</a>
+          Not a Admin? <a href="Index.php">Log in</a>
         </div>
       </form>
     </div>
 </html>
 
-<!--
-<html>
-<head>
-<link rel="stylesheet" href="admin.css"> 
-</head>
-<body>
-<form method="post" action="admin.php">
-  <div class="inputBox">
-    <span>Username: </span>
-    <input type="text" id="username" name="username" required><br>
-  </div>
-  <div class="inputBox">
-    <span>Password:</span>
-    <input type="password" id="password" name="password" required><br>
-  </div>
-
-  <input type="submit" value="Login">
-</form>  
-</body>
-</html> -->
 <?php
 }
  else 
