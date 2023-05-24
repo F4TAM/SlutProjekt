@@ -14,11 +14,13 @@ FollowingCount INTEGER
 $db->exec("CREATE TABLE IF NOT EXISTS Posts(
 PostID INTEGER PRIMARY KEY AUTOINCREMENT,
 AccountID INTEGER,
+Title TEXT,
 Content TEXT,
 Likes INTEGER,
 FOREIGN KEY (accountID) REFERENCES Accounts(AccountID)
 )");
 
+// Create table Comments 
 $db->exec("CREATE TABLE IF NOT EXISTS Comments(
 CommentID INTEGER PRIMARY KEY AUTOINCREMENT,
 PostID INTEGER,
@@ -29,7 +31,7 @@ FOREIGN KEY(AccountID) REFERENCES Accounts(AccountID),
 FOREIGN KEY(PostID) REFERENCES Posts(PostID)
 )");
 
-
+// Create table Followers 
 $db->exec("CREATE TABLE IF NOT EXISTS Followers(
 AccountID INTEGER,
 FollowerAccountID INTEGER,
@@ -37,6 +39,7 @@ FOREIGN KEY(AccountID) REFERENCES Accounts(AccountID),
 FOREIGN KEY(FollowerAccountID) REFERENCES Accounts(AccountID)
 )");
 
+// Create table PreAccounts
 $db->exec("CREATE TABLE IF NOT EXISTS PreAccounts(
 AccoundID INTEGER PRIMARY KEY AUTOINCREMENT,
 Name TEXT,
@@ -47,5 +50,5 @@ Password TEXT
 //close the database connection
 $db->close();
 
-header("location: LogInReg.php");
+header("location: Index.php");
 ?>

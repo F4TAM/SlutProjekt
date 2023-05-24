@@ -52,7 +52,7 @@
       if($result->fetchArray(SQLITE3_ASSOC))
       {
         echo 'Login successful!';
-        // Redirect to a success page or perform further actions
+        header("Location: Post.php");
       }
       else
       {
